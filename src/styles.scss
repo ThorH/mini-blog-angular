@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./variables";
+@import "~ngx-toastr/toastr";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  body {
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .card {
+      background-color: $white-ice;
+      box-shadow: 0px 0px 10px 1px $white-gray;
+      padding: 30px;
+      border-radius: 4px;
+    }
+    .response-error {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      p {
+        text-align: center;
+        overflow-wrap: break-word;
+        width: 60%;
+        font-size: 20px;
+      }
+    }
+
+    .post-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      h2 {
+        width: 100%;
+        font-size: 32px;
+        color: $dark-gray;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      &__row-input,
+      &__row-textarea {
+        margin-bottom: 5px;
+        .row__field {
+          font-size: 16px;
+        }
+      }
+
+      &__row-input {
+        .row__field {
+          width: 350px;
+        }
+      }
+
+      &__row-textarea {
+        .row__field {
+          width: 450px;
+          textarea {
+            min-height: 180px;
+          }
+        }
+      }
+
+      &__btn-submit {
+        text-align: center;
+        button {
+          width: 80px;
+          height: 45px;
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}

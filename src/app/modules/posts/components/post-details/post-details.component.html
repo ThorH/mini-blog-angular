@@ -1,0 +1,42 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="response-error" *ngIf="!isLoading && !actualPostComments.length">
+  <p>{{ messageError }}</p>
+</div>
+<div *ngIf="!isLoading && actualPostComments.length" class="post">
+  <div class="post__details card">
+    <p>
+      <strong>{{ userInfo.name }}</strong
+      >, <strong>"{{ userInfo.username }}"</strong>
+    </p>
+    <p class="details__title">
+      <strong>{{ actualPost.title }}</strong>
+    </p>
+    <p class="details__body">{{ actualPost.body }}</p>
+  </div>
+  <div class="post__comments">
+    <h3>Comments:</h3>
+    <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="comments__write" appearance="fill">
+        <mat-label>Leave a comment:</mat-label>
+        <textarea
+          [errorStateMatcher]="matcher"
+          formControlName="comment"
+          matInput
+        ></textarea>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="this.commentForm.invalid"
+      >
+        Comment
+      </button>
+    </form>
+    <div class="comments__item card" *ngFor="let comment of actualPostComments">
+      <p class="item__email">
+        <strong>{{ comment.email }}</strong>
+      </p>
+      <p class="item__comment">{{ comment.body }}</p>
+    </div>
+  </div>
+</div>

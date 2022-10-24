@@ -1,0 +1,45 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="response-error" *ngIf="!(isLoading && post.id)">
+  <p>{{ messageError }}</p>
+</div>
+<div class="post-form" *ngIf="!isLoading && post.id">
+  <h2>Edit post</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="post-form__row-input">
+      <mat-form-field class="row__field" appearance="fill">
+        <mat-label>Title</mat-label>
+        <input
+          type="text"
+          formControlName="title"
+          [errorStateMatcher]="matcher"
+          matInput
+        />
+        <mat-error *ngIf="this.editForm.get('title')?.invalid">
+          Title is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="post-form__row-textarea">
+      <mat-form-field class="row__field" appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea
+          formControlName="description"
+          [errorStateMatcher]="matcher"
+          matInput
+        ></textarea>
+        <mat-error *ngIf="this.editForm.get('description')?.invalid">
+          Description is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="post-form__btn-submit">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="this.editForm.invalid"
+      >
+        Post
+      </button>
+    </div>
+  </form>
+</div>

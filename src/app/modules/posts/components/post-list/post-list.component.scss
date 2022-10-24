@@ -1,0 +1,51 @@
+.load-spinner {
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+}
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__item {
+    width: 60%;
+    margin: 10px 0;
+    .item__top-bar {
+      display: flex;
+      p {
+        font-size: 15px;
+      }
+      .top-bar__actions {
+        margin-left: auto;
+        display: flex;
+        p {
+          font-size: 13px;
+          font-weight: 500;
+        }
+        .actions__details,
+        .actions__edit {
+          display: flex;
+          cursor: pointer;
+          p {
+            margin-left: 2px;
+            margin-top: 5px;
+          }
+        }
+
+        .actions__details {
+          margin-right: 20px;
+        }
+      }
+
+      margin-bottom: 12px;
+    }
+    .item__title {
+      font-size: 21px;
+    }
+  }
+  &__paginator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,31 @@
+header {
+  color: white;
+  background-color: #015b97;
+  margin-bottom: 20px;
+  padding-top: 30px;
+  h1 {
+    font-size: 42px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: 0.6s;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  nav {
+    display: flex;
+    margin-left: 20px;
+    padding-bottom: 10px;
+    a {
+      font-size: 19px;
+      font-weight: 600;
+      color: white;
+      margin: 15px;
+      transition: 0.6s;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

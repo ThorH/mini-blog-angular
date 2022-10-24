@@ -1,0 +1,35 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="response-error" *ngIf="!(isLoading && postList.length)">
+  <p>{{ messageError }}</p>
+</div>
+<div class="post-list" *ngIf="!isLoading && postList.length">
+  <div class="post-list__item card" *ngFor="let post of pageSlice">
+    <div class="item__top-bar">
+      <p>
+        <strong>{{ post.name }}</strong
+        >, <strong>"{{ post.userName }}"</strong>
+      </p>
+      <div class="top-bar__actions">
+        <div class="actions__details" [routerLink]="['/details', post.id]">
+          <mat-icon>open_in_new</mat-icon>
+          <p>details</p>
+        </div>
+        <div class="actions__edit" [routerLink]="['/edit', post.id]">
+          <mat-icon>edit</mat-icon>
+          <p>edit</p>
+        </div>
+      </div>
+    </div>
+    <div class="item__title">
+      <p>{{ post.title }}</p>
+    </div>
+  </div>
+  <div class="post-list__paginator">
+    <mat-paginator
+      [length]="postList.length"
+      [pageSize]="pageSize"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+  </div>
+</div>
