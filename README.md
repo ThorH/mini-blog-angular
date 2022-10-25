@@ -18,8 +18,10 @@ from the start by lazy loading on app root. All data is faked, for that jsonplac
 
 ## Dependencies
 
-ngx-toastr
-Angular material
+<ul>
+    <li>ngx-toastr</li>
+    <li>Angular material</li>
+</ul>
 
 <div align="center">
     <p><strong>Post register example</strong></p>
